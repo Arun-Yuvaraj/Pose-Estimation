@@ -96,7 +96,7 @@ if __name__ == '__main__':
                     (10, 10),  cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                     (0, 255, 0), 2)
         output_file.write(image)
-        cv2.imshow('tf-pose-estimation result', image)
+        #cv2.imshow('tf-pose-estimation result', image)
         fps_time = time.time()
         if cv2.waitKey(1) == 27:
             break
