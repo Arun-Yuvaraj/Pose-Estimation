@@ -53,6 +53,9 @@ if __name__ == '__main__':
     cam = cv2.VideoCapture(args.camera)
     width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    scale = 60
+    width = int((width * scale)/100)
+    height = int((height * scale)/100)
     frames_per_second = cam.get(cv2.CAP_PROP_FPS)
     output_file = cv2.VideoWriter(
                 filename="output.avi",
@@ -64,10 +67,18 @@ if __name__ == '__main__':
                 isColor=True,
             )
     ret_val, image = cam.read()
+    
+    
     logger.info('cam image=%dx%d' % (image.shape[1], image.shape[0]))
 
     while True:
         ret_val, image = cam.read()
+        
+        if image is None:
+            break
+        
+        image = cv2.GaussianBlur(image, (3,3), 0)
+        image = cv2.resize(image, (width,height))
 
         logger.debug('image process+')
         humans = e.inference(image, resize_to_default=(w > 0 and h > 0), upsample_size=args.resize_out_ratio)
