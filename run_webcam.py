@@ -59,9 +59,9 @@ if __name__ == '__main__':
     height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
     #scale = 40
     #new_width = int((width * scale) / 100)
-    new_width = 250
+    new_width = 368
     #new_height = int((height * scale) / 100)
-    new_height = 250
+    new_height = 368
     frames_per_second = cam.get(cv2.CAP_PROP_FPS)
     output_file = cv2.VideoWriter(
         filename="output1.avi",
