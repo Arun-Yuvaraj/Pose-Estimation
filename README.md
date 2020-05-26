@@ -1,5 +1,9 @@
 # tf-pose-estimation
 
+![](images/pose_ex.JPG)
+
+The above shown work is created by detecting hand points and drawing a bounding box around them. I was able to accomplish this with the help of githubs repo (https://github.com/ildoonet/tf-pose-estimation)
+
 'Openpose', human pose estimation algorithm, have been implemented using Tensorflow. It also provides several variants that have some changes to the network structure for **real-time processing on the CPU or low-power embedded devices.**
 
 **You can even run this on your macbook with a descent FPS!**
